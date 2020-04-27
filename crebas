@@ -1,0 +1,80 @@
+/*==============================================================*/
+/* Nom de SGBD :  MySQL 5.0                                     */
+/* Date de création :  27/04/2020 21:54:34                      */
+/*==============================================================*/
+
+
+drop table if exists CONSULTATION;
+
+drop table if exists EST_PRESCRIT;
+
+drop table if exists MEDECIN;
+
+drop table if exists MEDICAMENT;
+
+drop table if exists PATIENT;
+
+/*==============================================================*/
+/* Table : CONSULTATION                                         */
+/*==============================================================*/
+create table CONSULTATION
+(
+   ID                   int not null,
+   DATE                 date,
+   primary key (ID)
+);
+
+/*==============================================================*/
+/* Table : EST_PRESCRIT                                         */
+/*==============================================================*/
+create table EST_PRESCRIT
+(
+   CODE                 int not null,
+   ID                   int not null,
+   primary key (CODE, ID)
+);
+
+/*==============================================================*/
+/* Table : MEDECIN                                              */
+/*==============================================================*/
+create table MEDECIN
+(
+   MATRICULE            int not null,
+   ID                   int not null,
+   MEDECINNOM           char(30),
+   primary key (MATRICULE)
+);
+
+/*==============================================================*/
+/* Table : MEDICAMENT                                           */
+/*==============================================================*/
+create table MEDICAMENT
+(
+   CODE                 int not null,
+   LIBELLE              char(40),
+   primary key (CODE)
+);
+
+/*==============================================================*/
+/* Table : PATIENT                                              */
+/*==============================================================*/
+create table PATIENT
+(
+   NUMEROSS             int not null,
+   ID                   int not null,
+   PATIENTNOM           char(30),
+   primary key (NUMEROSS)
+);
+
+alter table EST_PRESCRIT add constraint FK_EST_PRESCRIT foreign key (CODE)
+      references MEDICAMENT (CODE) on delete restrict on update restrict;
+
+alter table EST_PRESCRIT add constraint FK_EST_PRESCRIT2 foreign key (ID)
+      references CONSULTATION (ID) on delete restrict on update restrict;
+
+alter table MEDECIN add constraint FK_DONNE foreign key (ID)
+      references CONSULTATION (ID) on delete restrict on update restrict;
+
+alter table PATIENT add constraint FK_ASSISTE foreign key (ID)
+      references CONSULTATION (ID) on delete restrict on update restrict;
+

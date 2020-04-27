@@ -1,0 +1,48 @@
+table Consultation
+//Insere
+insert into consultation values (1 ,'2020-04-27');
+insert into consultation values (2 ,'2020-04-22');
+insert into consultation values (3 ,'2020-04-21');
+insert into consultation values (4 ,'2020-04-25');
+
+
+//Update
+update consultation set DATE = '2019-2-21' where IDCONSULTATION = 4;
+
+//Delete
+delete FROM consultation where IDCONSULTATION = 4;
+
+
+//Table:Medcine
+
+insert INTO medecin VALUES (1, 1 , 'berada');
+insert INTO medecin VALUES (2, 2 , 'Ahmed');
+insert INTO medecin VALUES (3, 3 , 'Baali');
+
+update medecin set medecinName = 'Yasser' where IDCONSULTATION = 3;
+
+delete FROM medecin where IDCONSULTATION = 2;
+
+
+
+table medicament 
+
+
+insert INTO medicament values (2, 'Aspro');
+insert INTO medicament values (3, 'Nalgisic');
+
+update medicament set libelle = 'doliprane' where CODE= 1;
+
+delete FROM medicament  where CODE= 3;
+
+
+
+table patient
+
+insert INTO patient values (21, 1, 'KARBAL');
+insert INTO patient values (20, 2, 'ABOULFATH');
+insert INTO patient values (22, 3, 'Ghouas');
+
+update patient set patientName = 'Boufaa' where IDCONSULTATION = 2;
+
+delete FROM patient  where IDCONSULTATION = 1;
