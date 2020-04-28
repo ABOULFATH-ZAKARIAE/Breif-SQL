@@ -1,12 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1
--- Généré le : mar. 28 avr. 2020 à 00:21
--- Version du serveur :  5.5.24-log
--- Version de PHP : 7.2.30
-
+create database SQLbreif;
+use SQLBreif;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -41,10 +34,10 @@ INSERT INTO `consultation` (`IDCONSULTATION`, `DATE`) VALUES
 (2, '2020-04-22'),
 (3, '2020-04-21');
 
-//Update
+
 update consultation set DATE = '2019-2-21' where IDCONSULTATION = 4;
 
-//Delete
+
 delete FROM consultation where IDCONSULTATION = 4;
 
 -- --------------------------------------------------------
@@ -127,7 +120,7 @@ INSERT INTO `patient` (`NUMEROSS`, `IDCONSULTATION`, `PATIENTNOM`) VALUES
 (20, 2, 'Boufaa'),
 (22, 3, 'Ghouas');
 
-update patient set patientName = 'Boufaa' where IDCONSULTATION = 2;
+update patient set patientNom = 'Boufaa' where IDCONSULTATION = 2;
 
 delete FROM patient  where IDCONSULTATION = 1;
 
@@ -195,3 +188,5 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
